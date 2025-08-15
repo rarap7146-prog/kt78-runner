@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Endless Runner MVP</title>
+  <link rel="stylesheet" href="./styles/main.css">
+</head>
+<body>
+  <div id="start-screen" class="overlay">
+    <h1>KT78 Zombie Survival</h1>
+    <p>Keyboard: A / D or  left / right to switch lanes</p>
+    <button id="start-btn">Start</button>
+  </div>
+
+  <div id="game-over" class="overlay hidden">
+    <h1 id="final-text">Game Over</h1>
+    <button id="restart-btn">Restart</button>
+  </div>
+
+  <div id="hud">
+    <div id="power">Power: <span id="power-val">1</span></div>
+    <div id="score">Score: <span id="score-val">0</span></div>
+  </div>
+
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>
