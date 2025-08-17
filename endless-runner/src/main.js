@@ -1,3 +1,4 @@
+// main.js - FULL REPLACEMENT
 import Game from './game.js';
 
 let game = null;
@@ -17,9 +18,12 @@ restartBtn.addEventListener('click', () => {
   startGame();
 });
 
-function startGame(){
+// MODIFIED: This function is now async to handle asset loading
+async function startGame(){
   if(game) game.dispose();
   game = new Game({ container: document.body, onGameOver: showGameOver });
+  // We now wait for the async initialization (which loads the 3D model) to complete
+  await game._initAsync();
   game.start();
 }
 

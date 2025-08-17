@@ -8,11 +8,12 @@ export default class Track {
     this.poolLength = 6; // number of segments
     this.baseZ = 0;
 
-    const mat = new THREE.MeshStandardMaterial({ color: 0x333333 });
+  const mat = new THREE.MeshStandardMaterial({ color: 0x333333 });
+  this.material = mat;
 
     for(let i=0;i<this.poolLength;i++){
       const geo = new THREE.BoxGeometry(8, 0.1, this.segmentLength);
-      const mesh = new THREE.Mesh(geo, mat);
+  const mesh = new THREE.Mesh(geo, this.material);
       // place segments upward (z increasing)
       mesh.position.set(0, 0, i*this.segmentLength);
       scene.add(mesh);
@@ -28,6 +29,17 @@ export default class Track {
       if(seg.position.z > playerZ + this.segmentLength * (this.poolLength / 2)){
         seg.position.z -= this.segmentLength * this.poolLength;
       }
+    }
+  }
+
+  // Swap material for all track segments (skinning)
+  setMaterial(material) {
+    if (!material) return;
+    this.material = material;
+    for (const seg of this.segments) {
+      const old = seg.material;
+      seg.material = material;
+      if (old && old.dispose) old.dispose();
     }
   }
 }

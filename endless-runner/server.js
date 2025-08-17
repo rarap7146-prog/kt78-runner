@@ -17,6 +17,7 @@ function contentType(file){
     case '.json': return 'application/json';
     case '.png': return 'image/png';
     case '.jpg': case '.jpeg': return 'image/jpeg';
+  case '.webp': return 'image/webp';
     default: return 'application/octet-stream';
   }
 }

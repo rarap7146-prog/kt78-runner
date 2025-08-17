@@ -2,14 +2,23 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.155.0/build/three.module.js",
+        "three/examples/jsm/": "https://unpkg.com/three@0.155.0/examples/jsm/"
+      }
+    }
+  </script>
   <title>Endless Runner MVP</title>
   <link rel="stylesheet" href="./styles/main.css">
 </head>
 <body>
   <div id="start-screen" class="overlay">
     <h1>KT78 Zombie Survival</h1>
-    <p>Keyboard: A / D or  left / right to switch lanes</p>
+    <p>Keyboard: A / D or  Swipe left / right to switch lanes</p>
+    <br/>
     <button id="start-btn">Start</button>
   </div>
 
@@ -21,6 +30,14 @@
   <div id="hud">
     <div id="power">Power: <span id="power-val">1</span></div>
     <div id="score">Score: <span id="score-val">0</span></div>
+  </div>
+
+  <!-- Optional: show a hint when device is in landscape on small screens -->
+  <div id="orientation-overlay">
+    <div>
+      <h2>Please rotate your device</h2>
+      <p>This game is best played in portrait mode.</p>
+    </div>
   </div>
 
   <script type="module" src="./src/main.js"></script>

@@ -1,3 +1,29 @@
+/* Ensure full-viewport canvas without cropping on mobile */
+html, body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background: #222;
+}
+
+/* Optional: simple orientation guidance for landscape users */
+#orientation-overlay {
+	position: fixed;
+	inset: 0;
+	display: none;
+	align-items: center;
+	justify-content: center;
+	background: rgba(0,0,0,0.85);
+	color: #fff;
+	z-index: 1000;
+	text-align: center;
+	padding: 2rem;
+}
+
+@media screen and (orientation: landscape) and (max-width: 900px) {
+	#orientation-overlay { display: flex; }
+}
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html,body { height: 100%; }
 body { font-family: Arial, Helvetica, sans-serif; background: #111; color: #fff; overflow: hidden; }
